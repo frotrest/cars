@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
 import { glob } from 'glob';
-import SortCss from 'postcss-sort-media-queries';
 
 export default defineConfig(({ command }) => {
   return {
@@ -35,10 +34,6 @@ export default defineConfig(({ command }) => {
       outDir: '../dist',
       emptyOutDir: true,
     },
-    plugins: [
-      SortCss({
-        sort: 'mobile-first',
-      }),
-    ],
+    plugins: [],
   };
 });
