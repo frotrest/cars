@@ -1,4 +1,3 @@
-// Активные ссылки при скролле
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('header nav a');
 
@@ -28,7 +27,6 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Меню при скролле
 const menuBlock = document.querySelector('.header__blocks');
 
 function toggleMenuOnScroll() {
@@ -41,7 +39,6 @@ function toggleMenuOnScroll() {
   }
 }
 
-// Прогресс-бар скролла
 const scrollProgress = document.getElementById('progress');
 
 function calcScrollValue() {
@@ -61,12 +58,10 @@ function calcScrollValue() {
   scrollProgress.style.background = `conic-gradient(var(--red-color) ${scrollValue}%, transparent ${scrollValue}%)`;
 }
 
-// Клик по прогресс-бару → наверх
 scrollProgress.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// Подписки на события
 window.addEventListener('scroll', toggleMenuOnScroll);
 window.addEventListener('scroll', calcScrollValue);
 window.addEventListener('load', calcScrollValue);
