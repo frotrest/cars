@@ -1,41 +1,35 @@
-/* Active Nav Link on Scrol */
-
 let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
 
 window.onscroll = () => {
-  let top = window.scrollY; // Поточне значення прокрутки
+  let top = window.scrollY;
 
   if (top === 0) {
-    // Якщо прокрутка на верхній частині
     navLinks.forEach(link => {
-      link.classList.remove('active'); // Видаляємо активний клас у всіх посиланнях
+      link.classList.remove('active');
     });
 
-    // Додаємо активний клас до першого посилання
     navLinks[0].classList.add('active');
   } else {
     sections.forEach(sec => {
-      let offset = sec.offsetTop - 150; // Верх секції
-      let height = sec.offsetHeight; // Висота секції
-      let id = sec.getAttribute('id'); // ID секції
+      let offset = sec.offsetTop - 150;
+      let height = sec.offsetHeight;
+      let id = sec.getAttribute('id');
 
       // Перевіряємо, чи прокрутка в межах секції
       if (top >= offset && top < offset + height) {
         navLinks.forEach(link => {
-          link.classList.remove('active'); // Видаляємо активний клас у всіх посиланнях
+          link.classList.remove('active');
 
           // Вибираємо посилання відповідно до ID секції
           document
             .querySelector("header nav a[href*='" + id + "']")
-            .classList.add('active'); // Додаємо активний клас
+            .classList.add('active');
         });
       }
     });
   }
 };
-
-/* Active block menu & logo & languages on Scrol */
 
 let menuBlock = document.querySelector('.header__blocks');
 
@@ -43,7 +37,6 @@ let toggleMenuOnScroll = () => {
   let pos2 = document.documentElement.scrollTop;
 
   if (pos2 > 50) {
-    // Прокручено більше ніж на 100px
     menuBlock.classList.add('active');
     menuBlock.classList.add('open');
   } else {
@@ -76,9 +69,7 @@ let calcScrollValue = () => {
   scrollProgress.style.background = `conic-gradient(var(--red-color) ${scrollValue}%, transparent ${scrollValue}%)`;
 };
 
-// Додаємо обидві функції для події onscroll
 window.addEventListener('scroll', toggleMenuOnScroll);
 window.addEventListener('scroll', calcScrollValue);
 
-// Викликаємо функцію при завантаженні сторінки
 window.onload = calcScrollValue;
