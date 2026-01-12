@@ -6,10 +6,17 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build --base=/cars/",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint src",
+    "format": "prettier --write src"
   },
   "devDependencies": {
+    "eslint": "^9.39.2",
     "glob": "^11.0.0",
+    "prettier": "^3.7.4",
     "vite": "^5.4.6"
+  },
+  "dependencies": {
+    "eslint-config-prettier": "^10.1.8"
   }
 }
